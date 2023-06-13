@@ -1,0 +1,140 @@
+.item_wrapper {
+    width: 100%;
+    position: relative;
+    margin-top: 64px;
+}
+
+.item_icon {
+    left: 0;
+    width: 374px;
+    height: 485px;
+}
+
+.item_text_wrapper {
+    position: absolute;
+    left: 400px;
+    top: 0;
+}
+
+.item_cross {
+    left: 100%;
+    transform: translateX(-90%);
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.item_cross::before,
+.item_cross::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #00000099;
+}
+
+.item_cross::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.item_cross::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.item_title {
+    font-size: 36px;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.item_date {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.6;
+
+    text-align: center;
+    width: 98px;
+    height: 28px;
+    border: 1px solid #707070;
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.score_wrapper {
+    display: flex;
+    margin-top: 14px;
+}
+
+.star {
+    position: relative;
+    margin-top: 7px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-bottom: 0.7em;
+    margin-right: 12px;
+    margin-left: 8px;
+    border-right: 0.2em solid transparent;
+    border-bottom: 0.5em solid #ffdf00;
+    border-left: 0.2em solid transparent;
+}
+.star::before,
+.star::after {
+    content: '';
+    position: absolute;
+    top: 0.4em; 
+    left: -0.8em; 
+    width: 0;
+    height: 0;
+    border-right: 0.8em solid transparent; 
+    border-bottom: 0.5em solid #ffdf00; 
+    border-left: 0.8em solid transparent;
+    transform: rotate(-35deg);
+}
+.star::after {
+    transform: rotate(35deg);
+}
+
+.item_score {
+    font-size: 24px;
+    font-weight: 700;
+    transform: translateY(15%);
+}
+
+.item_genres {
+    margin-top: 20px;
+    display: flex;
+}
+
+.item_genre {
+    display: inline-block;
+    text-align: center;
+    width: 98px;
+    height: 28px;
+    border: 1px solid #707070;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    font-size: 15px;
+    color: #000000D9;
+    opacity: 0.7;
+}
+.item_genre:first-child {
+    margin-left: 0;
+}
+
+.item_descr {
+    margin-top: 24px;
+    font-size: 18px;
+    color: #000000;
+    opacity: 0.65;
+}
