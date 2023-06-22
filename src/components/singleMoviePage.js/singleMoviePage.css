@@ -2,9 +2,11 @@
     width: 100%;
     position: relative;
     margin-top: 64px;
+    padding: 0 100px;
 }
 
 .item_icon {
+    object-fit: cover;
     left: 0;
     width: 374px;
     height: 485px;
@@ -12,13 +14,14 @@
 
 .item_text_wrapper {
     position: absolute;
-    left: 400px;
+    left: 500px;
     top: 0;
+    width: 770px;
 }
 
 .item_cross {
     left: 100%;
-    transform: translateX(-90%);
+    transform: translateX(-100%);
     position: relative;
     width: 30px;
     height: 30px;
@@ -137,4 +140,19 @@
     font-size: 18px;
     color: #000000;
     opacity: 0.65;
+}
+
+.item_empty_title {
+    width: 374px;
+    height: 485px;
+    background-color: #000;
+    color: #fff;
+
+    padding: 80px 40px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.movie_empty_title p {
+    transform: translateY(-50%);
 }

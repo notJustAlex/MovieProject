@@ -4,7 +4,7 @@ import ErrorMessage from '../errorMessage/ErrorMessage';
 const setContent = (process, Component , data) => {
     switch(process){
         case 'waiting':
-            return null
+            return <Spinner/>;
         case 'loading': 
             return <Spinner/>;
         case 'confirmed': 

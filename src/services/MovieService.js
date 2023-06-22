@@ -7,8 +7,8 @@ const useMovieService = () => {
 	const _apiKey = "api_key=0c28de39122147921d44d5fee667181b";
 	const _baseOffset = 550;
 
-	const getRecomendedMovies = async () => {
-		const res = await request(`https://api.themoviedb.org/3/trending/movie/day?api_key=0c28de39122147921d44d5fee667181b`);
+	const getRecomendedMovies = async (page) => {
+		const res = await request(`https://api.themoviedb.org/3/trending/movie/day?api_key=0c28de39122147921d44d5fee667181b&page=${page}`);
         return res.results.map(item => _transformMovie(item));
 	}
 
@@ -17,8 +17,8 @@ const useMovieService = () => {
 		return _transformMovie(res);
 	};
 
-	const getMovieByTitle = async (title) => {
-		const res = await request(`https://api.themoviedb.org/3/search/movie?api_key=0c28de39122147921d44d5fee667181b&query=${title}`);
+	const getMovieByTitle = async (title, page) => {
+		const res = await request(`https://api.themoviedb.org/3/search/movie?api_key=0c28de39122147921d44d5fee667181b&query=${title}&page=${page}`);
 		return res.results.map(item => _transformMovie(item));
 	}
 
@@ -30,7 +30,7 @@ const useMovieService = () => {
 			vote: movie.vote_average.toFixed(1),
 			release_date: movie.release_date.split("-").reverse().join("-"),
 			genres: movie.genres,
-			icon: movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : undefined,
+			icon: movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'none',
 			status: movie.status
 		};
 	};

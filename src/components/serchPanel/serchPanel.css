@@ -9,6 +9,10 @@
 .search_title {
     font-size: 40px;
     font-weight: 200;
+    color: #fff;
+}
+.search_title a {
+    color: #fff;
 }
 
 .search_input {

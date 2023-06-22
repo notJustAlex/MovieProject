@@ -34,11 +34,11 @@ const SingleMoviePage = () => {
     const renderItem = (movie) => {
         return (
             <div className="item_wrapper">
-                <img src={movie.icon} alt={movie.title} className="item_icon"/>
+                {movie.icon === 'none' ? <div className='item_empty_title'><p>{movie.title}</p></div> : <img src={movie.icon} alt={movie.title} className="item_icon"/>}
                 <div className="item_text_wrapper">
                     <div className="item_cross" onClick={goBack}></div>
                     <h2 className='item_title'>{movie.title}</h2>
-                    <h3 className='item_date' style={{borderColor: `${dateStyle}`, color: `${dateStyle}`}}>{movie.release_date}</h3>
+                    <h3 className='item_date' style={{borderColor: `${dateStyle}`, color: `${dateStyle}`}}>{movie.release_date !== '' ? movie.release_date : 'soon!'}</h3>
                     <div className="score_wrapper">
                         {movie.vote > 6 ? <span className="star"></span> : null}
                         <h3 className='item_score'>{movie.vote}/10</h3>

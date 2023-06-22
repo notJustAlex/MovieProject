@@ -4,38 +4,52 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link, useParams } from 'react-router-dom';
 
 import MovieService from '../../services/MovieService';
-import setContent from '../utils/setContent';
+
+import Spinner from '../spinner/Spinner';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 import './movieList.css';
+
+const setContent = (process, Component , newItemLoading) => {
+    switch(process){
+        case 'waiting':
+            return <Spinner/>;
+        case 'loading': 
+            return newItemLoading ? <Component/> : <Spinner/>;
+        case 'confirmed': 
+            return <Component/>;
+        case 'error': 
+            return <ErrorMessage/>;
+        default: 
+            throw new Error('Unexpected process state');
+    }
+}
 
 const SearchMovieList = (props) => {
     const [movieList, setMovieList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
-    const [movieEnded, setMovieEnded] = useState(false);
+    const [page, setPage] = useState(1);
 
     const { getMovieByTitle, process, setProcess} = MovieService();
 
     const {str} = useParams();
 
+    console.log(page)
+
     useEffect(() => {
-        onRequest(true);
+        setPage(1)
+        setMovieList([])
+        onRequest(1, true);
     }, [str])
 
-    const onRequest = (initial) => {
+    const onRequest = (page, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
-        getMovieByTitle(str).then(res => onMovieListLoaded(res)).then(() => setProcess('confirmed'));
+        getMovieByTitle(str, page).then(res => onMovieListLoaded(res)).then(() => setProcess('confirmed'));
     }
 
     const onMovieListLoaded = (newMovieList) => {
-        let ended = false;
-
-        if(newMovieList.length < 10) {
-            ended = true;
-        }
-
-        setMovieList(movieList => [...newMovieList]);
+        setMovieList(movieList => [...movieList, ...newMovieList]);
         setNewItemLoading(newItemLoading => false);
-        setMovieEnded(movieEnded => ended);
     }
 
     function renderItems(arr) {
@@ -48,8 +62,9 @@ const SearchMovieList = (props) => {
                         key={item.id}
                         onClick={() => props.onMovieSelected}>
                             <Link to={`/movie/${item.id}`}>
-                                {item.icon ? <img src={item.icon} alt={item.title}/> : <div className='movie_empty_title'>{item.title}</div>}
+                                {item.icon !== 'none' ? <img src={item.icon} alt={item.title}/> : <div className='movie_empty_title'><p>{item.title}</p></div>}
                             </Link>
+                            <div className='movie_item_additional_date' key={item.id}>({item.release_date !== '' ? item.release_date.split('-')[2] : 'soon!'})</div>
                         </li>
                     </CSSTransition>
                 )
@@ -63,6 +78,15 @@ const SearchMovieList = (props) => {
                         {items}
                     </TransitionGroup>
                 </ul>
+                    <div className="movie_list_nav_wrapper">
+                        <button className='next_button' onClick={() => {
+                        setPage(page => page+1);
+                        onRequest(page+1);
+                    }}
+                    disabled={page>=500 ? true : false}>
+                        load more
+                    </button>
+                </div>
             </>
         )
     }
