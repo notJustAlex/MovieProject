@@ -3,22 +3,21 @@ import { useHttp } from "../hooks/http.hooks";
 const useMovieService = () => {
     const {request, clearError, process, setProcess} = useHttp();
 
-	const _apiBase = "https://api.themoviedb.org/3/movie/";
+	const _apiBase = "https://api.themoviedb.org/3";
 	const _apiKey = "api_key=0c28de39122147921d44d5fee667181b";
-	const _baseOffset = 550;
 
 	const getRecomendedMovies = async (page) => {
-		const res = await request(`https://api.themoviedb.org/3/trending/movie/day?api_key=0c28de39122147921d44d5fee667181b&page=${page}`);
+		const res = await request(`${_apiBase}/trending/movie/day?${_apiKey}&page=${page}`);
         return res.results.map(item => _transformMovie(item));
 	}
 
     const getMovie = async (id) => {
-		const res = await request(`https://api.themoviedb.org/3/movie/${id}?api_key=0c28de39122147921d44d5fee667181b`);
+		const res = await request(`${_apiBase}/movie/${id}?${_apiKey}`);
 		return _transformMovie(res);
 	};
 
 	const getMovieByTitle = async (title, page) => {
-		const res = await request(`https://api.themoviedb.org/3/search/movie?api_key=0c28de39122147921d44d5fee667181b&query=${title}&page=${page}`);
+		const res = await request(`${_apiBase}/search/movie?${_apiKey}&query=${title}&page=${page}`);
 		return res.results.map(item => _transformMovie(item));
 	}
 

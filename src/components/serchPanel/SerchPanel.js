@@ -13,7 +13,9 @@ const SerchPanel = () => {
 
     const match = useMatch('/search/:query');
     const updateInput = () => {
-        setStr(match && match.params.query)
+        if (match && match.params.query !== null) {
+            setStr(match && match.params.query)
+        }
     }
 
     const onUpdateInput = (title) => {

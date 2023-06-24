@@ -31,10 +31,7 @@ const MovieList = (props) => {
     const [page, setPage] = useState(1);
 
     const { getRecomendedMovies, process, setProcess} = MovieService();
-
-    console.log(page)
-    console.log(movieList)
-
+    
     useEffect(() => {
         onRequest(page, true);
     }, [])

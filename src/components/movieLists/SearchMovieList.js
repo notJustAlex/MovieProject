@@ -34,8 +34,6 @@ const SearchMovieList = (props) => {
 
     const {str} = useParams();
 
-    console.log(page)
-
     useEffect(() => {
         setPage(1)
         setMovieList([])
@@ -79,13 +77,14 @@ const SearchMovieList = (props) => {
                     </TransitionGroup>
                 </ul>
                     <div className="movie_list_nav_wrapper">
-                        <button className='next_button' onClick={() => {
-                        setPage(page => page+1);
-                        onRequest(page+1);
-                    }}
-                    disabled={page>=500 ? true : false}>
-                        load more
-                    </button>
+                        <button className='next_button' 
+                            onClick={() => {
+                            setPage(page => page+1);
+                            onRequest(page+1);
+                            }}
+                            disabled={page>=500 || items.length < 15 ? true : false}>
+                                load more
+                        </button>
                 </div>
             </>
         )
@@ -102,7 +101,7 @@ const SearchMovieList = (props) => {
     }
 
     const elements = useMemo(() => {
-        return movieList.length > 0 ? setContent(process, () => renderItems(movieList), newItemLoading) : onError();
+        return  movieList.length === 0 && process === 'confirmed' ? onError() : setContent(process, () => renderItems(movieList), newItemLoading);
     }, [process]);
 
 

@@ -114,6 +114,16 @@
 }
 
 .next_button {
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 40px;
+    background-color: #000000D9;
+    border-radius: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.next_button:disabled {
+    background-color: grey;
 }
