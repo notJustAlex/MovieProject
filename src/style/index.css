@@ -5,7 +5,59 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+html {
+    background-color: var(--background-color);
+    transition: background-color 200ms linear;
+}
+
 .app {
     width: 1366px;
     margin: 0 auto;
+}
+
+html[data-theme='dark'] {
+    --background-search-color: #4e005c;
+    --background-search-text-color: #c299c9;
+    --background-search-border-color: hsl(291, 31%, 69%);
+    --background-search-input-color: #a394a5;
+    --background-search-input-text-color: #e4e4e4;
+  
+    --background-color: #292929;
+    --background-text-color: #dfdfdf;
+    --background-border-color: #ba8fc2;
+    --background-empty-item-background-color: #bebebe;
+    --background-empty-item-text-color: #363636;
+
+    --button-background-color: #4e005c;
+    --button-text-color: #ba8fc2;
+    --button-border-color: #ba8fc2;
+    --button-disabled-color: #e0d1e2;
+
+    --single-color-text: #dfdfdf;
+
+}
+
+html[data-theme='light'] {
+    --background-search-color: #000000D9;
+    --background-search-text-color: #FFFFFF;
+    --background-search-border-color: #EEB73E;
+    --background-search-input-color: #FFFFFF;
+    --background-search-input-text-color: #000000D9;
+  
+    --background-color: #F4F4F4;
+    --background-text-color: #000000;
+    --background-border-color: #EEB73E;
+    --background-empty-item-background-color: #292929;
+    --background-empty-item-text-color: #F4F4F4;
+
+    --button-background-color: #000000;
+    --button-text-color: #F4F4F4;
+    --button-border-color: #000000;
+    --button-disabled-color: grey;
+
+    --single-color-text: #000000;
 }

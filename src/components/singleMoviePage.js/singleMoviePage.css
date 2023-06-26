@@ -52,6 +52,8 @@
     font-size: 36px;
     font-weight: 600;
     opacity: 0.85;
+    color: var(--single-color-text);
+    transition: color 200ms linear;
 }
 
 .item_date {
@@ -108,6 +110,8 @@
     font-size: 24px;
     font-weight: 700;
     transform: translateY(15%);
+    color: var(--single-color-text);
+    transition: color 200ms linear;
 }
 
 .item_genres {
@@ -128,7 +132,8 @@
     padding-bottom: 4px;
 
     font-size: 15px;
-    color: #000000D9;
+    color: var(--single-color-text);
+    transition: color 200ms linear;
     opacity: 0.7;
 }
 .item_genre:first-child {
@@ -138,7 +143,8 @@
 .item_descr {
     margin-top: 24px;
     font-size: 18px;
-    color: #000000;
+    color: var(--single-color-text);
+    transition: color 200ms linear;
     opacity: 0.65;
 }
 

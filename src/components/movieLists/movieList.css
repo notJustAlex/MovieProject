@@ -4,6 +4,8 @@
     font-weight: 500;
     opacity: 0.85;
     z-index: 1;
+    color: var( --background-text-color);
+    transition: color 200ms linear;
 }
 
 .movie_list {
@@ -12,6 +14,8 @@
     margin-top: 64px;
     display: grid;
     align-items: start;
+    background-color: var(--background-color);
+    transition: background-color 200ms linear;
 }
 
 .movie_grid {
@@ -33,7 +37,8 @@
 .movie_empty_title {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: var(--background-empty-item-background-color);
+    transition: background-color 200ms linear;
 }
 
 .movie_item img {
@@ -45,6 +50,7 @@
 .movie_item:hover, .movie_item:focus, .movie_item_additional_date:hover .movie_item {
     transform: scale(1.115);
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    border: none;
 }
 
 .movie_item:nth-child(4n) {
@@ -86,7 +92,8 @@
 }
 
 .movie_empty_title {
-    color: #fff;
+    color: var(--background-empty-item-text-color);
+    transition: color 200ms linear;
     font-size: 35px;
     padding: 50% 20px;
     text-align: center;
@@ -101,7 +108,9 @@
     position: absolute;
     text-align: center;
     width: 276px;
-    color: black;
+    color: var(--background-text-color);
+    transition: color 200ms linear;
+    transition: color 200ms linear;
     font-size: 18px;
     margin-top: 5px;
 }
@@ -116,14 +125,17 @@
 .next_button {
     width: 120px;
     height: 40px;
-    background-color: #000000D9;
+    background-color: var(--button-background-color);
     border-radius: 6px;
-    color: #fff;
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+    transition: background-color 200ms linear, color 200ms linear, border-color 200ms linear;
     text-transform: uppercase;
     cursor: pointer;
     font-size: 15px;
 }
 
 .next_button:disabled {
-    background-color: grey;
+    background-color: var(--button-disabled-color);
+    transition: background-color 200ms linear;
 }
