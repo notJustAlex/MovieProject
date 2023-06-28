@@ -11,7 +11,7 @@ import '../../style/index.css';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/MovieProject">
             <div className="app">
                 <SerchPanel/>
                 <main>
