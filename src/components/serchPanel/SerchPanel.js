@@ -8,10 +8,11 @@ import './serchPanel.css';
 const SerchPanel = () => {
     const [str, setStr] = useState('');
     const navigate = useNavigate();
-    const {theme, setTheme} = useTheme();
+    const {setTheme} = useTheme();
 
     useEffect(() => { 
         updateInput();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const match = useMatch('/search/:query');

@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import setContent from '../utils/setContent';
 
@@ -16,6 +16,7 @@ const SingleMoviePage = () => {
 
     useEffect(() => {
         updateMovie()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     const goBack = () => navigate(-1);
