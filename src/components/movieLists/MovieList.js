@@ -34,7 +34,8 @@ const MovieList = (props) => {
     
     useEffect(() => {
         onRequest(page, true);
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const onRequest = (page, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
