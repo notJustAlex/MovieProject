@@ -1,5 +1,5 @@
 import { Suspense} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 
 import SerchPanel from "../serchPanel/SerchPanel";
 import MovieList from "../movieLists/MovieList";
@@ -11,13 +11,13 @@ import '../../style/index.css';
 
 const App = () => {
     return (
-        <Router basename="/MovieProject">
+        <Router>
             <div className="app">
                 <SerchPanel/>
                 <main>
                     <Suspense fallback={<Spinner/>}>
                         <Routes>
-                            <Route path='/' element={<MovieList/>}/>
+                            <Route exact path='/' element={<MovieList/>}/>
                             <Route path='/search/:str' data='str' element={<SearchMovieList/>}/>
                             <Route path="/movie/:id" element={<SingleMoviePage/>} dataType='movie'/>
                         </Routes>
