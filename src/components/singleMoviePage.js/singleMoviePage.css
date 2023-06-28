@@ -37,7 +37,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #00000099;
+  background-color: var(--background-text-color);
+  transition: background-color 200ms linear;
 }
 
 .item_cross::before {

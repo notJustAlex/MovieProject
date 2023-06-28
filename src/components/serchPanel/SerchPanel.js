@@ -8,7 +8,7 @@ import './serchPanel.css';
 const SerchPanel = () => {
     const [str, setStr] = useState('');
     const navigate = useNavigate();
-    const {setTheme} = useTheme();
+    const {theme, setTheme} = useTheme();
 
     useEffect(() => { 
         updateInput();
@@ -34,8 +34,19 @@ const SerchPanel = () => {
     return (
         <div className="search_wrapper">
             <h2 className="search_title" onClick={() => onUpdateInput('')}><NavLink to={'/'}>Find me a movie</NavLink></h2>
-            <input value={str} autoComplete="off" id='search_input' className="search_input" type='text' placeholder="E.g. Harry Potter" onChange={(e) => onUpdateInput(e.target.value)}></input>
-            <input type="checkbox" onChange={handleLightThemeClick}/>
+            <div className="theme-switcher">
+                <input title="Toggles light & dark" type="checkbox" id="switcher" checked={theme === 'light' ? false : true} onChange={() =>  setTheme(theme => theme === 'light' ? 'dark' : 'light')}/>
+                <label htmlFor='switcher' >switch</label>
+            </div>
+            <input 
+                value={str} 
+                autoComplete="off" 
+                id='search_input' 
+                className="search_input" 
+                type='text' 
+                placeholder="E.g. Harry Potter" 
+                onChange={(e) => onUpdateInput(e.target.value)}>
+            </input>
         </div>
     )
 }

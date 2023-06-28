@@ -59,7 +59,7 @@ const MovieList = (props) => {
                         ref={elem => itemRefs.current[i] = elem}
                         onClick={() => props.onMovieSelected}>
                             <Link to={`/movie/${item.id}`}>
-                                {item.icon !== 'none' ? <img src={item.icon} alt={item.title}/> : <div className='movie_empty_item'>{item.title}</div>}
+                            {item.icon !== 'none' ? <img src={item.icon} alt={item.title}/> : <div className='movie_empty_title'><p>{item.title}</p></div>}
                             </Link>
                         </li>
                     </CSSTransition>

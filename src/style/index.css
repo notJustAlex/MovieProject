@@ -39,6 +39,8 @@ html[data-theme='dark'] {
 
     --single-color-text: #dfdfdf;
 
+    --switch-background-color: #ba8fc2;
+    --switch-front-color: #363636;
 }
 
 html[data-theme='light'] {
@@ -60,4 +62,7 @@ html[data-theme='light'] {
     --button-disabled-color: grey;
 
     --single-color-text: #000000;
+
+    --switch-background-color: #F4F4F4;
+    --switch-front-color: #000000;
 }
