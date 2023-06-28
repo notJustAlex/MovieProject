@@ -26,11 +26,7 @@ const SerchPanel = () => {
         title === '' ? navigate(`/`, {replace: false}) : navigate(`/search/${title}`, {replace: false});
         setStr(title);
     }
-
-    const handleLightThemeClick = () => {
-        setTheme(theme => theme === 'light' ? 'dark' : 'light')
-    }
-
+    
     return (
         <div className="search_wrapper">
             <h2 className="search_title" onClick={() => onUpdateInput('')}><NavLink to={'/'}>Find me a movie</NavLink></h2>
