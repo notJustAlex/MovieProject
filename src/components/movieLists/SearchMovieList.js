@@ -38,6 +38,7 @@ const SearchMovieList = (props) => {
         setPage(1)
         setMovieList([])
         onRequest(1, true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [str])
 
     const onRequest = (page, initial) => {
@@ -102,6 +103,7 @@ const SearchMovieList = (props) => {
 
     const elements = useMemo(() => {
         return  movieList.length === 0 && process === 'confirmed' ? onError() : setContent(process, () => renderItems(movieList), newItemLoading);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [process]);
 
 

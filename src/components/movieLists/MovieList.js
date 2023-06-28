@@ -34,7 +34,7 @@ const MovieList = (props) => {
     
     useEffect(() => {
         onRequest(page, true);
-    }, [])
+    })
 
     const onRequest = (page, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
@@ -88,6 +88,7 @@ const MovieList = (props) => {
 
     const elements = useMemo(() => {
         return setContent(process, () => renderItems(movieList), newItemLoading);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [process]);
 
 
