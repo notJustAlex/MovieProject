@@ -1,0 +1,49 @@
+.movie_filter_wrapper {
+	width: 80%;
+	height: 36px;
+	margin: 0 auto;
+	margin-top: 53px;
+}
+
+.movie_filter_wrapper .filter_button {
+	text-align: center;
+	padding: 10px 30px;
+	box-sizing: border-box;
+	border-radius: 500px;
+	background-color: #17161b;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 500;
+}
+.movie_filter_wrapper .filter_button:first-child {
+	margin-left: 0;
+}
+.movie_filter_wrapper .filter_button:last-child {
+	margin-right: 0;
+}
+
+.movie_filter_wrapper .active {
+	background-color: #e50914;
+}
+
+.movie_filter_wrapper .slick-active,
+.movie_filter_wrapper .slick-slide div,
+.movie_filter_wrapper .slick-slide {
+	display: inline-block;
+	width: auto !important;
+	margin: 0 10.5px;
+}
+
+.movie_filter_wrapper .slick-slider button {
+	height: 100%;
+}
+
+.movie_filter_wrapper .filter_spinner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 36px;
+}

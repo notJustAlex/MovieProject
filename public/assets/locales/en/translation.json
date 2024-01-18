@@ -1,0 +1,30 @@
+{
+	"nav_menu_links_home": "Home",
+	"nav_menu_links_movies": "Movies",
+	"nav_menu_links_series": "Series",
+	"nav_menu_links_my_list": "My list",
+
+	"footer_rights": "The rights to the films belong to their authors. All movies are provided for informational purposes only. Administration is not responsible for illegal materials posted by users! Any film will be removed at the request of the copyright holder.",
+	"footer_contacts_title": "Pages",
+	"footer_contacts_page_home": "The most watched movies",
+	"footer_contacts_page_movies": "Top Rated Movies",
+	"footer_contacts_page_top_movies": "Movies",
+	"footer_contacts_page_series": "Series",
+	"footer_network_title": "Our social networks",
+	"footer_reference_title": "For reference",
+
+	"movie_list_title_recommended": "Recommended",
+	"movie_list_title_popular": "Popular",
+	"movie_list_title_series": "Series",
+	"movie_list_title_cartoons": "Cartoons",
+
+	"single_movie_descr_time": "Time",
+	"single_movie_descr_date": "Release date",
+	"single_movie_descr_genres": "Genres",
+	"single_movie_descr_language": "Language",
+	"single_movie_descr_review": "liked this film",
+	"single_movie_descr_button_text": "WATCH",
+	"single_movie_title_about": "About the movie",
+	"single_movie_title_comments": "Comments",
+	"single_movie_title_more_like": "More like"
+}

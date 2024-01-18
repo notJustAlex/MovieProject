@@ -1,0 +1,30 @@
+{
+	"nav_menu_links_home": "Головна",
+	"nav_menu_links_movies": "Фільми",
+	"nav_menu_links_series": "Сериали",
+	"nav_menu_links_my_list": "Мій список",
+
+	"footer_rights": "Права на фільми належать їх авторам. Всі фільми є надано лише в інформаційних цілях. Адміністрація ні відповідальність за незаконні матеріали, розміщені користувачами! Будь-який фільм буде видалено на вимогу правовласника.",
+	"footer_contacts_title": "Сторінки",
+	"footer_contacts_page_home": "Найпопулярніші фільми",
+	"footer_contacts_page_movies": "Фільми з найвищим рейтингом",
+	"footer_contacts_page_top_movies": "Фільми",
+	"footer_contacts_page_series": "Сериали",
+	"footer_network_title": "Наші соціальні мережі",
+	"footer_reference_title": "Для довідки",
+
+	"movie_list_title_recommended": "Рекомендуємо",
+	"movie_list_title_popular": "Популярні",
+	"movie_list_title_series": "Серіали",
+	"movie_list_title_cartoons": "Мультфільми",
+
+	"single_movie_descr_time": "Тривалість",
+	"single_movie_descr_date": "Дата виходу",
+	"single_movie_descr_genres": "Жанри",
+	"single_movie_descr_language": "Мови",
+	"single_movie_descr_review": "сподобався цей фільм",
+	"single_movie_descr_button_text": "дивитись",
+	"single_movie_title_about": "Про фільм",
+	"single_movie_title_comments": "Коментарі",
+	"single_movie_title_more_like": "Більше схожого"
+}

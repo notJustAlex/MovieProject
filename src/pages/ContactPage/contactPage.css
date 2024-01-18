@@ -1,0 +1,88 @@
+.contact .wrapper {
+	width: 40vw;
+	padding-top: 150px;
+	margin-left: 150px;
+}
+
+.contact .wrapper .title {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+.contact .wrapper .title svg {
+	margin-right: 6px;
+}
+
+.contact .wrapper .descr {
+	font-size: 12px;
+	font-weight: 400;
+	color: #ffffff;
+	line-height: 160%;
+	max-width: 540px;
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.contact .wrapper .inputs_wrapper input,
+.contact .wrapper .inputs_wrapper textarea {
+	width: 100%;
+	border: 1px solid #ffffff;
+	background-color: #111111;
+	border-radius: 6px;
+	padding: 14px 16px;
+	box-sizing: border-box;
+
+	font-size: 14px;
+	font-weight: 400;
+	color: #ffffff;
+	margin-bottom: 16px;
+}
+
+.contact .wrapper .inputs_wrapper input::placeholder,
+.contact .wrapper .inputs_wrapper textarea::placeholder {
+	font-size: 14px;
+	font-weight: 400;
+	color: #ffffff;
+}
+
+.contact .wrapper .inputs_wrapper textarea {
+	height: 160px !important;
+	resize: none;
+}
+
+.contact .wrapper .inputs_wrapper input {
+	height: 45px;
+}
+
+.contact .wrapper .buttons_wrapper {
+	margin-top: 32px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.contact .wrapper .buttons_wrapper button {
+	border-radius: 4px;
+	background-color: #e50914;
+	padding: 14px 80px;
+	border: none;
+	cursor: pointer;
+
+	font-size: 15px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+.contact .wrapper .buttons_wrapper .icons_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 30%;
+}
+
+.contact .wrapper .buttons_wrapper .icons_wrapper svg {
+	cursor: pointer;
+}

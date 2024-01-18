@@ -1,0 +1,152 @@
+.main {
+	height: 100vh;
+	position: relative;
+}
+
+.main .slick-slider,
+.main .slick-list {
+	width: 100%;
+	height: 100%;
+}
+
+.main .slick-slider .slide_wrapper {
+	position: relative;
+}
+.main .slick-slider .slide_wrapper::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to right, rgba(0, 0, 0, 96%), rgba(0, 0, 0, 37%));
+	pointer-events: none;
+}
+
+.main .slick-slider .slide_wrapper img {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+}
+
+.main .slick-dots {
+	bottom: 34px;
+}
+
+.main .slick-dots li {
+	background-color: #ffffff;
+	width: 15px;
+	height: 2px;
+	border-radius: 20%;
+	transition: 500ms width ease-in-out;
+}
+
+.main .slick-dots li.slick-active {
+	width: 30px;
+}
+
+.main .slick-dots li button {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-size: cover;
+}
+
+.main .slick-dots li.slick-active button:before,
+.main .slick-dots li button:before {
+	color: transparent;
+}
+
+.main .text_wrapper {
+	position: absolute;
+	top: 216px;
+	left: 150px;
+}
+
+.main .text_wrapper .top {
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 600;
+	background-color: #e50914;
+	padding: 1px 13px;
+	border-radius: 100px;
+}
+
+.main .text_wrapper .title {
+	color: #ffffff;
+	font-size: 60px;
+	font-weight: 600;
+	margin: 3px 0;
+}
+
+.main .text_wrapper .descr {
+	margin-top: 7px;
+	width: 430px;
+	font-size: 14px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.main .text_wrapper .info_wrapper {
+	margin-top: 25px;
+	color: #f5f5f5;
+}
+
+.main .text_wrapper .info_wrapper span {
+	margin: 0 2px;
+}
+
+.main .text_wrapper .info_wrapper .age {
+	color: #ff0e1e;
+}
+
+.main .text_wrapper .genres_wrapper {
+	margin-top: 15px;
+}
+
+.main .text_wrapper .genres_wrapper .score_wrapper {
+	display: inline-block;
+	padding-right: 19px;
+}
+
+.main .text_wrapper .genres_wrapper .score_wrapper span {
+	color: #ffffff;
+	font-size: 24px;
+	font-weight: 600;
+	padding-left: 8px;
+}
+
+.main .text_wrapper .genres_wrapper span {
+	color: #ffffff;
+}
+
+.main .text_wrapper .genres_wrapper .amount,
+.main .text_wrapper .genres_wrapper .genres .genre {
+	color: #ff0e1e;
+}
+
+.main .text_wrapper .genres_wrapper .amount {
+	margin: 0 3px;
+}
+
+.main .watch_button {
+	margin-top: 30px;
+	background-color: #e50914;
+	border: none;
+	border-radius: 100px;
+	padding: 11.5px 33.5px;
+	cursor: pointer;
+
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.main .watch_button svg {
+	margin-right: 3px;
+	transform: translateY(10%);
+}
+.main .watch_button svg path {
+	fill: #ffffff;
+}

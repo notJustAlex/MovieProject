@@ -1,0 +1,55 @@
+.error_section {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 10000;
+	background: linear-gradient(to right, rgba(0, 0, 0, 96%), rgba(0, 0, 0, 37%));
+}
+
+.error_section .error_message {
+	width: 22vw;
+	height: 25vh;
+	background-color: #17161b;
+	border-radius: 8px;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.error_section .error_message svg {
+	fill: #e50914;
+	width: 40%;
+	height: 40%;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.error_section .error_message .title {
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 15px;
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.error_section .error_message .descr {
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 13px;
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.error_section .error_message .reload {
+	color: #e50914;
+	cursor: pointer;
+	font-weight: 400;
+	font-size: 13px;
+	display: block;
+	text-align: center;
+}

@@ -1,0 +1,76 @@
+.footer {
+	margin-top: 123px;
+	padding: 60px 150px 40px 150px;
+}
+
+.footer .text_wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer .text_wrapper .company_wrapper svg {
+	cursor: pointer;
+}
+
+.footer .text_wrapper .company_wrapper span {
+	margin-top: 15px;
+	display: block;
+	width: 500px;
+
+	font-size: 12px;
+	color: #ffffff;
+	line-height: 20px;
+	font-weight: 500;
+}
+
+.footer .text_wrapper .contacts_wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 40%;
+}
+
+.footer .text_wrapper .contacts_wrapper .list .title {
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 600;
+}
+
+.footer .text_wrapper .contacts_wrapper .list ul {
+	margin-top: 12px;
+	margin-bottom: 0;
+	padding-left: 20px;
+}
+
+.footer .text_wrapper .contacts_wrapper .list ul li {
+	color: #ffffff;
+	line-height: 20px;
+	font-weight: 500;
+	font-size: 12px;
+	cursor: pointer;
+	transition: text-decoration 0.3s ease-in-out;
+}
+.footer .text_wrapper .contacts_wrapper .list ul li:hover {
+	text-decoration: underline;
+}
+
+.footer .text_wrapper .contacts_wrapper .list ul li span {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.footer .policies {
+	display: block;
+	text-align: center;
+	margin-top: 127px;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 32px;
+	color: #ffffff;
+	font-weight: 500;
+	cursor: pointer;
+	transition: text-decoration 0.7s ease-in-out;
+}
+.footer .policies:hover {
+	text-decoration: underline;
+}
