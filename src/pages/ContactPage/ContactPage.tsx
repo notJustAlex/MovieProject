@@ -1,3 +1,5 @@
+import useTitle from "../../hooks/useTitile";
+
 import { ReactComponent as TriangleIcon } from "../../assets/icons/triangle.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/icons/Instagram.svg";
 import { ReactComponent as FacebookIcon } from "../../assets/icons/Facebook.svg";
@@ -8,6 +10,8 @@ import { ReactComponent as YouTubeIcon } from "../../assets/icons/Youtube.svg";
 import "./contactPage.css";
 
 const ContactPage = () => {
+	useTitle("Filbery | Contacts");
+
 	return (
 		<main className="contact">
 			<section className="contact_section">

@@ -9,6 +9,8 @@ import MovieListItem from "../../components/MovieList/MovieListItem";
 import { IGenre } from "../../assets/interfaces/genre.interface";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { useTranslation } from "react-i18next";
+import useTitle from "../../hooks/useTitile";
+import { IDetailSerie } from "../../assets/interfaces/detailed_serie.interface";
 
 import { ReactComponent as LikeIcon } from "../../assets/icons/thumb_up.svg";
 import { ReactComponent as DislikeIcon } from "../../assets/icons/thumb_down.svg";
@@ -30,12 +32,26 @@ const SingleMoviePage = () => {
 
 	const { type, id } = useParams();
 
-	const [movie, setMovie] = useState<IDetailMovie | null>(null);
+	const [movie, setMovie] = useState<IDetailMovie | IDetailSerie | null>(null);
+	const [moviePoster, setMoviePoster] = useState(true);
+
 	const [video, setVideo] = useState<IVideo | null>(null);
 
 	const [genres, setGenres] = useState<IGenre[]>([]);
 
 	const idRef = useRef("");
+
+	useTitle(
+		`Filbery | ${
+			movie
+				? isMovie(movie)
+					? movie?.original_title
+					: movie?.original_name
+				: type
+				? type?.charAt(0).toUpperCase() + type.slice(1)
+				: "Movie"
+		}`
+	);
 
 	useEffect(() => {
 		if (id && type) {
@@ -49,6 +65,8 @@ const SingleMoviePage = () => {
 	useEffect(() => {
 		if (id && type && idRef.current !== id) {
 			getMovie(id, type);
+			getVideo(id);
+			setMoviePoster(true);
 			idRef.current = id;
 			window.scrollTo({
 				top: 0,
@@ -61,7 +79,7 @@ const SingleMoviePage = () => {
 	const getMovie = (id: string, type: string) => {
 		clearError();
 		getMovieById(id, type)
-			.then((movie: IDetailMovie) => setMovie(movie))
+			.then((movie: IDetailMovie | IDetailSerie) => setMovie(movie))
 			.then(() => setProcess("confirmed"))
 			.catch(() => {
 				setProcess("error");
@@ -86,6 +104,10 @@ const SingleMoviePage = () => {
 			});
 	};
 
+	function isMovie(obj: IDetailMovie | IDetailSerie): obj is IDetailMovie {
+		return "original_title" in obj;
+	}
+
 	if (!movie || !genres || !id || !type)
 		return (
 			<div className="spinner_wrapper">
@@ -104,27 +126,61 @@ const SingleMoviePage = () => {
 		<main className="single_movie_page">
 			<section className="movie_section">
 				<div className="movie_wrapper">
-					<div className="img_wrapper">
-						<span key={movie.genres[0].id} className="genre">
-							{movie.genres[0].name}
-						</span>
-						<img
-							src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
-							alt={movie?.original_title}
-						/>
-					</div>
+					{isMovie(movie)
+						? moviePoster && (
+								<div className="img_wrapper">
+									<span key={movie.genres[0].id} className="genre">
+										{movie.genres[0].name}
+									</span>
+									<img
+										src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+										alt={movie?.original_title}
+										onError={() => setMoviePoster(false)}
+									/>
+								</div>
+						  )
+						: moviePoster && (
+								<div className="img_wrapper">
+									<span key={movie.genres[0].id} className="genre">
+										{movie.genres[0].name}
+									</span>
+									<img
+										src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+										alt={movie?.original_name}
+										onError={() => setMoviePoster(false)}
+									/>
+								</div>
+						  )}
 
 					<div className="text_wrapper">
-						<h3 className="title">{movie.original_title}</h3>
+						{isMovie(movie) ? (
+							<h3 className="title">{movie.original_title}</h3>
+						) : (
+							<h3 className="title">{movie.original_name}</h3>
+						)}
+
 						<div className="details_wrapper">
-							<span className="time">
-								{t("single_movie_descr_time")} -{" "}
-								<span>{Math.floor(movie.runtime / 60)}h</span>{" "}
-								<span>{Math.round(movie.runtime % 60)}m</span>
-							</span>
+							{isMovie(movie) ? (
+								<span className="time">
+									{t("single_movie_descr_time")} -{" "}
+									<span>{Math.floor(movie.runtime / 60)}h</span>{" "}
+									<span>{Math.round(movie.runtime % 60)}m</span>
+								</span>
+							) : (
+								<span className="time">
+									{t("single_movie_descr_time")} -{" "}
+									<span>{Math.floor(movie.episode_run_time[0] / 60)}h</span>{" "}
+									<span>{Math.round(movie.episode_run_time[0] % 60)}m</span>
+								</span>
+							)}
+
 							<span className="release_date">
 								{t("single_movie_descr_date")} -{" "}
-								<span>{movie?.release_date?.split("-")[0]}</span>
+								{isMovie(movie) ? (
+									<span>{movie?.release_date?.split("-")[0]}</span>
+								) : (
+									<span>{movie.first_air_date?.split("-")[0]}</span>
+								)}
 							</span>
 							<span className="genres">
 								{t("single_movie_descr_genres")} -{" "}
@@ -152,16 +208,18 @@ const SingleMoviePage = () => {
 							</span>
 						</div>
 
-						<button
-							className="watch"
-							onClick={() =>
-								window.open(`https://www.youtube.com/watch?v=${video?.key}`)
-							}
-							disabled={!video}
-						>
-							<TriangleIcon />
-							{t("single_movie_descr_button_text")}
-						</button>
+						{video && (
+							<button
+								className="watch"
+								onClick={() =>
+									window.open(`https://www.youtube.com/watch?v=${video?.key}`)
+								}
+								disabled={!video}
+							>
+								<TriangleIcon />
+								{t("single_movie_descr_button_text")}
+							</button>
+						)}
 					</div>
 				</div>
 

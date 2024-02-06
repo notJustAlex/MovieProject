@@ -12,6 +12,7 @@
 	position: relative;
 	width: 20%;
 	height: 25%;
+	margin-right: 40px;
 }
 .movie_section .movie_wrapper .img_wrapper img {
 	border-radius: 6px;
@@ -34,7 +35,6 @@
 }
 
 .movie_section .movie_wrapper .text_wrapper {
-	margin-left: 40px;
 	padding: 8px 0;
 }
 

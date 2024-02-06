@@ -6,6 +6,7 @@ import { IGenre } from "../../assets/interfaces/genre.interface";
 import MovieList from "../../components/MovieList/MovieList";
 import { useNavigate } from "react-router-dom";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import useTitle from "../../hooks/useTitile";
 
 import { ReactComponent as StarIcon } from "../../assets/icons/star.svg";
 import { ReactComponent as TriangleIcon } from "../../assets/icons/triangle.svg";
@@ -15,6 +16,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./mainPage.css";
 
 const MainPage = () => {
+	useTitle("Filbery");
+
 	const { getPopularMovies, getAllGenres, setProcess, clearError, process } =
 		MovieService();
 

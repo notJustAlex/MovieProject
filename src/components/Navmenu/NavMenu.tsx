@@ -9,6 +9,7 @@ import { ISerie } from "../../assets/interfaces/serie.interface";
 import SearchMovieItem from "./SearchMovieItem";
 import i18next from "i18next";
 import cookies from "js-cookie";
+import { languages } from "../../utils/i18nConfig";
 
 import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 import { ReactComponent as CaretIcon } from "../../assets/icons/caret.svg";
@@ -19,19 +20,6 @@ import { ReactComponent as ClouseIcon } from "../../assets/icons/close.svg";
 import { ReactComponent as TriangleIcon } from "../../assets/icons/triangle.svg";
 
 import "./navMenu.css";
-
-const languages = [
-	{
-		code: "en",
-		name: "English",
-		title: "English",
-	},
-	{
-		code: "ua",
-		name: "Ukrainian",
-		title: "Українська",
-	},
-];
 
 const NavMenu = () => {
 	const navigate = useNavigate();
@@ -236,17 +224,19 @@ const NavMenu = () => {
 								<CaretIcon />
 							</button>
 							<div className="dropdown-content">
-								{languages.map(({ code, title }) => (
-									<button
-										className="dropdown_item"
-										key={code}
-										title={title}
-										onClick={() => i18next.changeLanguage(code)}
-										disabled={code === cookies.get("i18next")}
-									>
-										{code}
-									</button>
-								))}
+								{languages
+									.filter((lang) => lang.code !== cookies.get("i18next"))
+									.map(({ code, title }) => (
+										<button
+											className="dropdown_item"
+											key={code}
+											title={title}
+											onClick={() => i18next.changeLanguage(code)}
+											disabled={code === cookies.get("i18next")}
+										>
+											{code}
+										</button>
+									))}
 							</div>
 						</div>
 					</li>
